@@ -33,6 +33,8 @@ export default function VoteButtons({ dealId }: { dealId: string }) {
     const next: Vote = vote === choice ? null : choice;
     setVote(next);
     save(storageKey, next);
+    // Tell the tally (and anything else listening) to recount.
+    window.dispatchEvent(new Event("vote-changed"));
   }
 
   // Tailwind classes pulled out for readability.

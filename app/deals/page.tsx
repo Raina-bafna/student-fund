@@ -1,5 +1,6 @@
 import { deals, formatMoney } from "@/lib/deals";
 import VoteButtons from "./vote-buttons";
+import VoteTally from "./vote-tally";
 
 /**
  * The "Deals" page — lists every startup pitch open for review.
@@ -16,8 +17,10 @@ export default function DealsPage() {
           Open Deals
         </h1>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          Review the startup pitches below. Voting will go here next.
+          Review the startup pitches below and cast your vote on each.
         </p>
+
+        <VoteTally />
 
         <ul className="mt-10 grid gap-6">
           {deals.map((deal) => (
