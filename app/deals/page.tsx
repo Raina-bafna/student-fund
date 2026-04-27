@@ -4,6 +4,7 @@ import VoteButtons from "./vote-buttons";
 import VoteTally from "./vote-tally";
 import OutcomesPanel from "./outcomes-panel";
 import OutcomeBadge from "./outcome-badge";
+import RestartButton from "./restart-button";
 
 /**
  * The "Deals" page — lists every startup pitch open for review.
@@ -76,6 +77,8 @@ export default function DealsPage() {
             </li>
           ))}
         </ul>
+
+        <RestartButton />
       </div>
     </main>
   );
