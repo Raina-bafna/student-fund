@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { deals, formatMoney } from "@/lib/deals";
 import VoteButtons from "./vote-buttons";
 import VoteTally from "./vote-tally";
@@ -30,7 +31,12 @@ export default function DealsPage() {
             >
               <div className="flex items-baseline justify-between gap-4">
                 <h2 className="text-xl font-semibold text-black dark:text-zinc-50">
-                  {deal.name}
+                  <Link
+                    href={`/deals/${deal.id}`}
+                    className="hover:underline"
+                  >
+                    {deal.name}
+                  </Link>
                 </h2>
                 <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
                   {deal.sector}
