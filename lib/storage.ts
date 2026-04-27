@@ -30,3 +30,16 @@ export function load<T>(key: string, defaultValue: T): T {
     return defaultValue;
   }
 }
+
+/**
+ * Delete a key from localStorage. Safe to call when the key doesn't exist
+ * and safe on the server (no-op).
+ */
+export function remove(key: string): void {
+  if (typeof window === "undefined") return;
+  try {
+    window.localStorage.removeItem(key);
+  } catch {
+    // localStorage can throw in restricted environments — fail quietly.
+  }
+}
