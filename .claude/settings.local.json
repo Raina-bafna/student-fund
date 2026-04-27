@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npm --version)",
+      "Bash(git --version)",
+      "Bash(brew --version)",
+      "Bash(zsh -i -c 'node --version && npm --version && which node')",
+      "Bash(grep -v \"^$\")",
+      "Bash(git config *)",
+      "Bash(echo \"name:  $\\(git config --global user.name\\)\")",
+      "Bash(echo \"email: $\\(git config --global user.email\\)\")",
+      "Bash(npx create-next-app@latest /Users/rainabafna/student-fund --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Bash(mkdir -p /tmp/student-fund-docs-backup)",
+      "Bash(mv /Users/rainabafna/student-fund/Business_plan.md /Users/rainabafna/student-fund/Execution_roadmap.md /Users/rainabafna/student-fund/FEATURES.md /tmp/student-fund-docs-backup/)",
+      "Read(//tmp/**)"
+    ]
+  }
+}
