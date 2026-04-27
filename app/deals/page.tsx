@@ -2,6 +2,8 @@ import Link from "next/link";
 import { deals, formatMoney } from "@/lib/deals";
 import VoteButtons from "./vote-buttons";
 import VoteTally from "./vote-tally";
+import OutcomesPanel from "./outcomes-panel";
+import OutcomeBadge from "./outcome-badge";
 
 /**
  * The "Deals" page — lists every startup pitch open for review.
@@ -22,6 +24,7 @@ export default function DealsPage() {
         </p>
 
         <VoteTally />
+        <OutcomesPanel />
 
         <ul className="mt-10 grid gap-6">
           {deals.map((deal) => (
@@ -38,9 +41,12 @@ export default function DealsPage() {
                     {deal.name}
                   </Link>
                 </h2>
-                <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                  {deal.sector}
-                </span>
+                <div className="flex items-center gap-2">
+                  <OutcomeBadge deal={deal} />
+                  <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                    {deal.sector}
+                  </span>
+                </div>
               </div>
 
               <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
