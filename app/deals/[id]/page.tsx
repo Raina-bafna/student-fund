@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { deals, formatMoney } from "@/lib/deals";
 import VoteButtons from "../vote-buttons";
+import DealMemo from "./memo";
 
 /**
  * Detail page for one startup pitch.
@@ -66,6 +67,7 @@ export default async function DealDetailPage({
           </dl>
 
           <VoteButtons dealId={deal.id} />
+          <DealMemo dealId={deal.id} />
         </div>
       </div>
     </main>
