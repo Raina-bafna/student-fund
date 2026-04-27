@@ -1,0 +1,64 @@
+import { deals, formatMoney } from "@/lib/deals";
+
+/**
+ * The "Deals" page — lists every startup pitch open for review.
+ *
+ * This is a Server Component (the default in the App Router): it runs
+ * on the server, generates HTML, and ships zero JavaScript for itself.
+ * Fast and simple.
+ */
+export default function DealsPage() {
+  return (
+    <main className="min-h-screen bg-zinc-50 px-6 py-16 dark:bg-black">
+      <div className="mx-auto max-w-3xl">
+        <h1 className="text-3xl font-semibold tracking-tight text-black dark:text-zinc-50">
+          Open Deals
+        </h1>
+        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+          Review the startup pitches below. Voting will go here next.
+        </p>
+
+        <ul className="mt-10 grid gap-6">
+          {deals.map((deal) => (
+            <li
+              key={deal.id}
+              className="rounded-2xl border border-black/[.08] bg-white p-6 shadow-sm dark:border-white/[.145] dark:bg-zinc-950"
+            >
+              <div className="flex items-baseline justify-between gap-4">
+                <h2 className="text-xl font-semibold text-black dark:text-zinc-50">
+                  {deal.name}
+                </h2>
+                <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                  {deal.sector}
+                </span>
+              </div>
+
+              <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                {deal.description}
+              </p>
+
+              <dl className="mt-5 flex gap-8 text-sm">
+                <div>
+                  <dt className="text-xs uppercase tracking-wide text-zinc-500">
+                    Asking
+                  </dt>
+                  <dd className="font-medium text-black dark:text-zinc-50">
+                    {formatMoney(deal.askAmount)}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-xs uppercase tracking-wide text-zinc-500">
+                    Valuation
+                  </dt>
+                  <dd className="font-medium text-black dark:text-zinc-50">
+                    {formatMoney(deal.valuation)}
+                  </dd>
+                </div>
+              </dl>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </main>
+  );
+}
