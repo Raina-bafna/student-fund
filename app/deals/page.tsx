@@ -1,4 +1,5 @@
 import { deals, formatMoney } from "@/lib/deals";
+import VoteButtons from "./vote-buttons";
 
 /**
  * The "Deals" page — lists every startup pitch open for review.
@@ -55,6 +56,8 @@ export default function DealsPage() {
                   </dd>
                 </div>
               </dl>
+
+              <VoteButtons dealId={deal.id} />
             </li>
           ))}
         </ul>
