@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { deals, formatMoney } from "@/lib/deals";
 import VoteButtons from "../vote-buttons";
+import OutcomeBadge from "../outcome-badge";
 import DealMemo from "./memo";
 
 /**
@@ -38,9 +39,12 @@ export default async function DealDetailPage({
             <h1 className="text-3xl font-semibold tracking-tight text-black dark:text-zinc-50">
               {deal.name}
             </h1>
-            <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-              {deal.sector}
-            </span>
+            <div className="flex items-center gap-2">
+              <OutcomeBadge deal={deal} />
+              <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                {deal.sector}
+              </span>
+            </div>
           </div>
 
           <p className="mt-4 text-base leading-7 text-zinc-700 dark:text-zinc-300">
